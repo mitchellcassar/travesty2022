@@ -1,0 +1,7 @@
+{%extends 'base.html'%} {%block pageBody%}
+<div class="container p-5">
+{% for table in tables %}
+{{ table|safe }}
+</div>
+{% endfor %}
+{%endblock%}

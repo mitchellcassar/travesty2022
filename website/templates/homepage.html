@@ -1,0 +1,79 @@
+{%extends 'base.html'%} {%block pageBody%}
+<div class="container p-3">
+  <div class="container text-center">
+    <h2>Welcome to the 2022 Travesty open golf tournament!</h2>
+  </div>
+  <p>
+    <strong>
+      Use this page to submit a score to the database used to calculate your
+      handicap. For more information on how your handicap is calculated, visit
+      <a
+        href="https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/topics/handicap-index-calculation.html"
+        target="_blank"
+        >here.</a
+      >
+    </strong>
+  </p>
+</div>
+<div class="container p-3">
+  <form name="roundInfo" action="/rounds" method="POST">
+    <label for="player" class="form-label"> Player </label>
+    <select name="player" id="player">
+      <option value="1">Mitchell Cassar</option>
+      <option value="2">Michael Cassar</option>
+      <option value="3">Zachary Cassar</option>
+      <option value="4">Erik Cassar</option>
+      <option value="5">Peter Kruter</option>
+      <option value="6">Kevin Gruza</option>
+      <option value="7">Jon Cullis</option>
+      <option value="8">Rob Carron</option>
+      <option value="9">Bill Whalen</option>
+      <option value="10">Al Holman</option>
+      <option value="11">Mike Schlote</option>
+      <option value="12">Jeff Storey</option>
+    </select>
+    <div class="mb-3">
+      <label for="course" class="form-label">Course</label>
+      <input type="text" class="form-control" name="course" />
+    </div>
+    <div class="mb-3">
+      <label for="score" class="form-label">Score</label>
+      <input
+        type="number"
+        class="form-control"
+        min="0"
+        max="140"
+        name="score"
+        value="0"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="courseRating" class="form-label">Course Rating</label>
+      <input
+        type="number"
+        class="form-control"
+        min="0"
+        max="85"
+        name="courseRating"
+        value="0"
+        step="0.1"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="courseSlope" class="form-label">Course Slope</label>
+      <input
+        type="number"
+        class="form-control"
+        min="0"
+        max="180"
+        name="courseSlope"
+        value="0"
+        step="0.1"
+      />
+    </div>
+    <div class="container text-center">
+      <button type="submit" class="btn btn-primary">Add Round</button>
+    </div>
+  </form>
+</div>
+{%endblock%}
