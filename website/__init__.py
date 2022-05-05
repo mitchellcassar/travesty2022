@@ -25,16 +25,17 @@ def createApp():
     app.register_blueprint(routes, url_prefix = '/')
 
     from .schema import Player, Round
-    createDatabase(app)
+    if 1 == 2:
+        createDatabase(app)
 
     from .listPlayers import players
-    with app.app_context():
-        if len(Player.query.all()) < 12:
-            addToDb = [Player(first_name = player[0], last_name=player[1]) for player in players]
-            for player in addToDb:
-                db.session.add(player)
-                print(player.first_name + player.last_name + " added to database")
-            db.session.commit()
-
+    if 1==2:
+        with app.app_context():
+            if len(Player.query.all()) < 12:
+                addToDb = [Player(first_name = player[0], last_name=player[1]) for player in players]
+                for player in addToDb:
+                    db.session.add(player)
+                    print(player.first_name + player.last_name + " added to database")
+                db.session.commit()
     return app
 
