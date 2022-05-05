@@ -14,7 +14,7 @@ def createDatabase(app):
 
 def createApp():
     app = Flask(__name__)
-    app.config['SECURE_KEY'] = 'fkrmmkpgmfkp3emfkpmpampmfpd'
+    app.config['SECURE_KEY'] = os.getenv('SECURE_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = DB_CONN_STRING 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
