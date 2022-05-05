@@ -7,7 +7,7 @@ import psycopg2
 load_dotenv()
 
 db = SQLAlchemy()
-DB_CONN_STRING = 'postgres://yrbvxdrectywvl:2bd707ad3a9ed5f9e24445fcbaf416a78b29efdbc4891031e6c77a5f79d8da68@ec2-52-5-110-35.compute-1.amazonaws.com:5432/dedih68fbgaf2i'
+DB_CONN_STRING = 'postgresql://yrbvxdrectywvl:2bd707ad3a9ed5f9e24445fcbaf416a78b29efdbc4891031e6c77a5f79d8da68@ec2-52-5-110-35.compute-1.amazonaws.com:5432/dedih68fbgaf2i'
 #DB_CONN_STRING = os.getenv('HEROKU_POSTGRES_URL')
 
 def createDatabase(app):
