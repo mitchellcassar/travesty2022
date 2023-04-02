@@ -28,7 +28,8 @@ def players():
     table = pd.read_sql("""
                         SELECT 
                         CONCAT_WS(' ', first_name, last_name) AS "Name",
-                        COUNT(round.player_id) AS "Number of Rounds"
+                        SUM(CASE WHEN ROUND.DATE < '2022-12-31' THEN 1 ELSE 0 END) AS "2022 Rounds",
+                        SUM(CASE WHEN ROUND.DATE > '2022-12-31' THEN 1 ELSE 0 END) AS "2023 Rounds"
                         FROM player
                         LEFT JOIN round ON player.id = round.player_id
                         GROUP BY player.id
@@ -62,6 +63,7 @@ def rounds():
                         CONCAT_WS(' ', first_name, last_name) AS name, course, score, rating, slope
                         FROM player
                         JOIN round ON player.id = round.player_id
+                        WHERE round.date > '2022-12-31'
                         ORDER BY round.id DESC
                         """, db.engine)
 
