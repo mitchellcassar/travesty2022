@@ -1,4 +1,5 @@
 from . import db
+import datetime
 
 class Player(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -16,6 +17,8 @@ class Round(db.Model):
     score = db.Column(db.String(80))
     rating = db.Column(db.String(80))
     slope = db.Column(db.String(80))
+    tees = db.Column(db.String(80))
+    date = db.Column(db.Date(), default=datetime.date.today())
 
     player_id = db.Column(db.Integer, db.ForeignKey('player.id'))
     

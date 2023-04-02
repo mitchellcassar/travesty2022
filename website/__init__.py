@@ -1,13 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-from dotenv import load_dotenv
 import psycopg2
 
-load_dotenv()
-
 db = SQLAlchemy()
-DB_CONN_STRING = os.getenv('HEROKU_POSTGRES_URL')
+DB_CONN_STRING = 'postgresql://buyzlsvp:vr09b2pS11dRw4TvgyXidcTdo0qKQZBr@drona.db.elephantsql.com/buyzlsvp'
 
 def createDatabase(app):
         db.create_all(app=app)

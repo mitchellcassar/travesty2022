@@ -34,8 +34,10 @@ def players():
                         GROUP BY player.id
                         ORDER BY player.id
                         """, db.engine)
-    table['Handicap'] = hdcps.values()
-    table['Course Handicap: Deerhurst Highlands'] = [round((i*131)/113,2) for i in hdcps.values()]
+    table['Handicap'] = [round(i,1) for i in hdcps.values()]
+    table['Handicap: Atunyote'] = [round(max(0,(i*127)/113 + (69.5-72)),1) for i in hdcps.values()]
+    table['Handicap: Kaluhyat'] = [round(max(0,(i*135)/113 + (71-72)),1) for i in hdcps.values()]
+    table['Handicap: Shenandoah'] = [round(max(0,(i*128)/113 + (69.9-72)),1) for i in hdcps.values()]
 
 
     return render_template('players.html', tables = [table.to_html(classes = 'table',justify = 'justify-all', index=False)])
@@ -50,7 +52,8 @@ def rounds():
             score = roundData['score'],
             rating = roundData['courseRating'],
             slope = roundData['courseSlope'],
-            player_id = roundData['player']
+            player_id = roundData['player'],
+            tees = roundData['tees']
         )
         db.session.add(roundToAdd)
         db.session.commit()
