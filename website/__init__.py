@@ -4,7 +4,7 @@ import os
 import psycopg2
 
 db = SQLAlchemy()
-DB_CONN_STRING = 'postgresql://buyzlsvp:vr09b2pS11dRw4TvgyXidcTdo0qKQZBr@drona.db.elephantsql.com/buyzlsvp'
+DB_CONN_STRING = 'postgres://ophjaempldiesk:5ce9b296fd019992f9de770771cbf2b61d558b40ea28fde7c6c50a5715e287bf@ec2-3-217-146-37.compute-1.amazonaws.com:5432/d8t3kaotnthv6u'
 
 def createDatabase(app):
         db.create_all(app=app)
